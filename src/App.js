@@ -1,6 +1,6 @@
 const App = () => {
   return (
-    <main className="App">
+    <main>
       Product List App
     </main>
   );
