@@ -10,7 +10,7 @@ const ProductsContainer = ({ productsData }) => {
           return (
             <Product
               key={data.name}
-              name = {data.name}
+              name={data.name}
               category={data.category}
               price={data.price}
               images={data.image}
