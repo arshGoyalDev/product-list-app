@@ -1,9 +1,16 @@
+import ProductsContainer from "./Components/ProductsContainer";
+
+import productsData  from "./assets/products.json"
+
 const App = () => {
+
+  // console.log(productsData[0])
+
   return (
     <main>
-      Product List App
+      <ProductsContainer productsData={productsData} />
     </main>
   );
-}
+};
 
 export default App;
