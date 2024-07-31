@@ -7,3 +7,12 @@
 body {
   font-family: "Red Hat Text", sans-serif;
 }
+
+
+.number-change-btn svg {
+  fill: white;
+}
+
+.number-change-btn:hover svg {
+  fill: hsl(14, 86%, 42%);
+}

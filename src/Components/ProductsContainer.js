@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-const ProductsContainer = ({ productsData }) => {
+const ProductsContainer = ({ productsData, cart, updateCart }) => {
   return (
     <section className="lg:w-[60%]">
       <h1 className="font-bold text-4xl lg:text-[2.75rem]">Desserts</h1>
@@ -14,6 +14,8 @@ const ProductsContainer = ({ productsData }) => {
               category={data.category}
               price={data.price}
               images={data.image}
+              cart={cart}
+              updateCart={updateCart}
             />
           );
         })}
