@@ -3,34 +3,41 @@ import { useState } from "react";
 const Product = ({ name, category, price, images, cart, updateCart }) => {
   const [number, updateNumber] = useState(0);
 
-  const addToCart = () => {
+  const addToCart = (action) => {
+    console.log(number);
     const newItem = {
       images,
       name,
       category,
       price,
-      number,
+      number: action === "increment" ? number + 1 : number - 1,
     };
 
-    const newCart = [newItem, ...cart];
+    let newCart = [...cart];
 
-    updateCart(newCart);
+    if (cart.some((item) => item.name === name)) {
+      let index = cart.findIndex((item) => item.name === name);
+      newCart[index].number = action === "increment" ? number + 1 : number - 1;
+      updateCart(newCart);
+    } else {
+      newCart = [newItem, ...cart];
+      updateCart(newCart);
+    }
   };
 
-  const increment  = () => {
-    updateNumber(number + 1)
-  }
+  const increment = () => {
+    let newNumber = number + 1;
+    updateNumber(newNumber);
+    addToCart("increment");
+  };
 
-  const decrement  = () => {
-    if (number !== 0) {
-      updateNumber(number - 1)
-      // let newNumber = number + 1;
-      // addToCart(newNumber);
-
+  const decrement = () => {
+    if (number >= 1) {
+      let newNumber = number - 1;
+      updateNumber(newNumber);
+      addToCart("decrement");
     }
-  }
-
-
+  };
 
   return (
     <div>
@@ -62,11 +69,11 @@ const Product = ({ name, category, price, images, cart, updateCart }) => {
             <p className="font-semibold">Add to Cart</p>
           </button>
         ) : (
-          <div
-            className="text-white flex items-center gap-10 bg-primary-red py-3 px-7 rounded-full absolute -bottom-[20px] z-50 transition"
-            onClick={addToCart}
-          >
-            <button className="border-[1px] border-white rounded-full py-2 pl-[4.14px] pr-1 grid place-content-center number-change-btn transition hover:bg-white" onClick={decrement}>
+          <div className="text-white flex items-center gap-10 bg-primary-red py-3 px-7 rounded-full absolute -bottom-[20px] z-50 transition">
+            <button
+              className="border-[1px] border-white rounded-full py-2 pl-[4.14px] pr-1 grid place-content-center number-change-btn transition hover:bg-white"
+              onClick={decrement}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"
@@ -78,7 +85,10 @@ const Product = ({ name, category, price, images, cart, updateCart }) => {
               </svg>
             </button>
             <p>{number}</p>
-            <button className="border-[1px] border-white rounded-full pt-1 pb-[4.26px] pr-[4.357px] pl-1 grid place-content-center transition number-change-btn hover:bg-white" onClick={increment}>
+            <button
+              className="border-[1px] border-white rounded-full pt-1 pb-[4.26px] pr-[4.357px] pl-1 grid place-content-center transition number-change-btn hover:bg-white"
+              onClick={increment}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"
