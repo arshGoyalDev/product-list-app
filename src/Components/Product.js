@@ -3,8 +3,9 @@ import { useState } from "react";
 const Product = ({ name, category, price, images, cart, updateCart }) => {
   const [number, updateNumber] = useState(0);
 
+  const index = cart.findIndex((item) => item.name === name);
+
   const addToCart = (action) => {
-    console.log(number);
     const newItem = {
       images,
       name,
@@ -16,9 +17,11 @@ const Product = ({ name, category, price, images, cart, updateCart }) => {
     let newCart = [...cart];
 
     if (cart.some((item) => item.name === name)) {
-      let index = cart.findIndex((item) => item.name === name);
-      newCart[index].number = action === "increment" ? number + 1 : number - 1;
-      updateCart(newCart);
+      if (newCart[index]) {
+        newCart[index].number =
+          action === "increment" ? number + 1 : number - 1;
+        updateCart(newCart);
+      }
     } else {
       newCart = [newItem, ...cart];
       updateCart(newCart);
@@ -32,10 +35,17 @@ const Product = ({ name, category, price, images, cart, updateCart }) => {
   };
 
   const decrement = () => {
-    if (number >= 1) {
+    if (number > 1) {
       let newNumber = number - 1;
       updateNumber(newNumber);
       addToCart("decrement");
+    } else if (number === 1) {
+      let newNumber = number - 1;
+      updateNumber(newNumber);
+
+      let newCart = cart;
+      newCart.splice(index, 1);
+      updateCart(newCart);
     }
   };
 
