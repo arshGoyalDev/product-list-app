@@ -1,4 +1,16 @@
 const CartItem = ({ name, number, price, cart, updateCart }) => {
+  const deleteItem = () => {
+    let newCart = [];
+
+    cart.forEach((item) => {
+      if (item.name !== name) {
+        newCart = [item, ...newCart];
+      }
+    });
+
+    updateCart(newCart);
+  };
+
   return (
     <div className="flex justify-between items-center py-6 border-b-neutral-rose100 border-b-2 gap-3">
       <div className="grid gap-3">
@@ -14,7 +26,10 @@ const CartItem = ({ name, number, price, cart, updateCart }) => {
         </div>
       </div>
       <div>
-        <button className="border-2 border-neutral-rose400 w-5 h-5 grid place-content-center rounded-full">
+        <button
+          className="border-2 border-neutral-rose400 w-5 h-5 grid place-content-center rounded-full"
+          onClick={deleteItem}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="12"

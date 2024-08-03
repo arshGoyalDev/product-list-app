@@ -12,6 +12,7 @@ const Cart = ({ cart, updateCart }) => {
             {cart.map((item) => {
               return (
                 <CartItem
+                  key={item.name}
                   name={item.name}
                   number={item.number}
                   price={item.price}
