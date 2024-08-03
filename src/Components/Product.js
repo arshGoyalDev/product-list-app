@@ -39,16 +39,15 @@ const Product = ({ name, category, price, images, cart, updateCart }) => {
       let newNumber = number - 1;
       updateNumber(newNumber);
       addToCart("decrement");
-    }
-    else if (number === 1) {
+    } else if (number === 1) {
       let newCart = cart;
-      let correctedCart = []
+      let correctedCart = [];
 
       newCart.forEach((item) => {
         if (item.name !== name) {
           correctedCart = [item, ...correctedCart];
         }
-      })
+      });
       updateNumber(number - 1);
       updateCart(correctedCart);
     }
