@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 
 const Cart = ({ cart, updateCart }) => {
@@ -64,11 +65,18 @@ const Cart = ({ cart, updateCart }) => {
                   d="M14.25 18.75h-1.875a1.25 1.25 0 0 1-1.25-1.25v-6.875h3.75a2.498 2.498 0 0 0 2.488-2.747 2.594 2.594 0 0 0-2.622-2.253h-.99l-.11-.487C13.283 3.56 11.769 2.5 9.875 2.5a3.762 3.762 0 0 0-3.4 2.179l-.194.417-.54-.072A1.876 1.876 0 0 0 5.5 5a2.5 2.5 0 1 0 0 5v1.25a3.75 3.75 0 0 1 0-7.5h.05a5.019 5.019 0 0 1 4.325-2.5c2.3 0 4.182 1.236 4.845 3.125h.02a3.852 3.852 0 0 1 3.868 3.384 3.75 3.75 0 0 1-3.733 4.116h-2.5V17.5h1.875v1.25Z"
                 />
               </svg>
-              <p className="text-neutral-rose900">This is a <span className="font-bold">carbon-neutral</span> delivery</p>
+              <p className="text-neutral-rose900">
+                This is a <span className="font-bold">carbon-neutral</span>{" "}
+                delivery
+              </p>
             </div>
 
             <div>
-              <button className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition">Confirm Order</button>
+              <Link to={'/order'}>
+              <button className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition">
+                Confirm Order
+              </button>
+              </Link>
             </div>
           </div>
         ) : (

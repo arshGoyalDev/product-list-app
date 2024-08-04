@@ -25,6 +25,7 @@ const CartItem = ({ name, number, price, cart, updateCart }) => {
           </p>
         </div>
       </div>
+
       <div>
         <button
           className="border-2 border-neutral-rose400 w-5 h-5 grid place-content-center rounded-full"

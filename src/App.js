@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import productsData from "./assets/products.json";
+import { Route, Routes } from "react-router";
 
-import ProductsContainer from "./Components/ProductsContainer";
-import Cart from "./Components/Cart";
+import Home from "./Pages/Home";
+import Order from "./Pages/Order";
 
 const App = () => {
   const [cart, updateCart] = useState([]);
@@ -13,12 +13,10 @@ const App = () => {
 
   return (
     <main className="grid gap-7 lg:grid-cols-3 xl:grid-cols-4 bg-neutral-rose50 min-h-screen px-8 py-10 md:p-16 lg:p-[75xp] xl:p-[70px] xxl:p-28">
-      <ProductsContainer
-        productsData={productsData}
-        cart={cart}
-        updateCart={updateCart}
-      />
-      <Cart cart={cart} updateCart={updateCart} />
+      <Home cart={cart} updateCart={updateCart} />
+      <Routes>
+        <Route path="/order" element={<Order cart={cart} updateCart={updateCart} />} />
+      </Routes>
     </main>
   );
 };
