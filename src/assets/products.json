@@ -79,7 +79,7 @@
   {
     "image": {
       "thumbnail": "./images/image-brownie-thumbnail.jpg",
-      "mobile": "./images/image-brownie-mobile.jpg",
+      "mobile": "images/image-brownie-mobile.jpg",
       "tablet": "./images/image-brownie-tablet.jpg",
       "desktop": "./images/image-brownie-desktop.jpg"
     },

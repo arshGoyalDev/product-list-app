@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CartItem from "./CartItem";
 
 const Cart = ({ cart, updateCart }) => {
+
+  const location = useLocation();
+
   const getTotalNumber = () => {
     let totalNumber = 0;
     cart.forEach((item) => {
@@ -48,7 +51,7 @@ const Cart = ({ cart, updateCart }) => {
               <p className="font-bold text-3xl">${getTotalCost()}</p>
             </div>
 
-            <div className="bg-neutral-rose50 py-5 flex justify-center items-center gap-2 rounded-xl">
+            <div className="bg-neutral-rose50 py-5 px-6 flex justify-center items-center gap-2 rounded-xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -72,7 +75,7 @@ const Cart = ({ cart, updateCart }) => {
             </div>
 
             <div>
-              <Link to={'/confirm-order'}>
+              <Link to={'/confirm-order'} state={{background: location}}>
               <button className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition">
                 Confirm Order
               </button>

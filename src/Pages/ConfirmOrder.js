@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import OrderItem from "../Components/OrderItem";
 
-const ConfirmOrder = () => {
+const ConfirmOrder = ({cart, updateCart}) => {
   return (
     <div className="z-[2000]">
       <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)] z-900"></div>
@@ -26,6 +27,17 @@ const ConfirmOrder = () => {
           </div>
           <h1 className="text-5xl font-bold mb-3">Order Confirmed</h1>
           <p className="text-neutral-rose500">We hope you enjoy your food!</p>
+        </div>
+
+        <div>
+          {
+            cart.map((item) => {
+              return (
+
+                <OrderItem key={item.name} name={item.name} price={item.price} image={item.image} number={item.number} />
+              )
+            })
+          }
         </div>
 
         <Link to="../">
