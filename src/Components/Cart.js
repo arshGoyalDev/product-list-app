@@ -72,7 +72,7 @@ const Cart = ({ cart, updateCart }) => {
             </div>
 
             <div>
-              <Link to={'/order'}>
+              <Link to={'/confirm-order'}>
               <button className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition">
                 Confirm Order
               </button>

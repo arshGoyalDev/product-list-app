@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
 
 import Home from "./Pages/Home";
-import Order from "./Pages/Order";
+import ConfirmOrder from "./Pages/ConfirmOrder";
 
 const App = () => {
   const [cart, updateCart] = useState([]);
@@ -15,7 +15,7 @@ const App = () => {
     <main className="grid gap-7 lg:grid-cols-3 xl:grid-cols-4 bg-neutral-rose50 min-h-screen px-8 py-10 md:p-16 lg:p-[75xp] xl:p-[70px] xxl:p-28">
       <Home cart={cart} updateCart={updateCart} />
       <Routes>
-        <Route path="/order" element={<Order cart={cart} updateCart={updateCart} />} />
+        <Route path="/confirm-order" element={<ConfirmOrder cart={cart} updateCart={updateCart} />} />
       </Routes>
     </main>
   );
