@@ -3,12 +3,20 @@ import CartItem from "./CartItem";
 const Cart = ({ cart, updateCart }) => {
   const getTotalNumber = () => {
     let totalNumber = 0;
-
     cart.forEach((item) => {
-      totalNumber = +item.number;
+      totalNumber += item.number;
     });
 
     return totalNumber;
+  };
+
+  const getTotalCost = () => {
+    let totalCost = 0;
+    cart.forEach((item) => {
+      totalCost += item.price * item.number;
+    });
+
+    return totalCost;
   };
 
   return (
@@ -19,18 +27,27 @@ const Cart = ({ cart, updateCart }) => {
       <div>
         {cart.length !== 0 ? (
           <div>
-            {cart.map((item) => {
-              return (
-                <CartItem
-                  key={item.name}
-                  name={item.name}
-                  number={item.number}
-                  price={item.price}
-                  cart={cart}
-                  updateCart={updateCart}
-                />
-              );
-            })}
+            <div>
+              {cart.map((item) => {
+                return (
+                  <CartItem
+                    key={item.name}
+                    name={item.name}
+                    number={item.number}
+                    price={item.price}
+                    cart={cart}
+                    updateCart={updateCart}
+                  />
+                );
+              })}
+            </div>
+
+            <div className="flex justify-between items-center pt-6">
+              <p className="font-semibold">Order Total</p>
+              <p className="font-bold text-3xl">${getTotalCost()}</p>
+            </div>
+
+            
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-5 pb-5 mt-12">
