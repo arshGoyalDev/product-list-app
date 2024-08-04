@@ -1,10 +1,20 @@
 import CartItem from "./CartItem";
 
 const Cart = ({ cart, updateCart }) => {
+  const getTotalNumber = () => {
+    let totalNumber = 0;
+
+    cart.forEach((item) => {
+      totalNumber = +item.number;
+    });
+
+    return totalNumber;
+  };
+
   return (
     <section className="bg-white rounded-xl p-6 xl:p-7 grid h-fit">
       <h1 className="text-2xl text-primary-red font-extrabold">
-        Your Cart (0)
+        Your Cart ({getTotalNumber()})
       </h1>
       <div>
         {cart.length !== 0 ? (
