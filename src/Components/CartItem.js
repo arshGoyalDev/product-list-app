@@ -12,7 +12,7 @@ const CartItem = ({ name, number, price, cart, updateCart }) => {
   };
 
   return (
-    <div className="flex justify-between items-center py-6 border-b-neutral-rose100 border-b-2 gap-3">
+    <div className="flex justify-between items-center py-6 border-b-neutral-rose50 border-b-2 gap-3">
       <div className="grid gap-3">
         <h2 className="font-semibold text-lg">{name}</h2>
         <div className="flex gap-2">
