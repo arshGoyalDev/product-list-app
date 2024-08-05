@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import OrderItem from "../Components/OrderItem";
 import OrderTotal from "../Components/OrderTotal";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 
 const ConfirmOrder = ({ cart, updateCart }) => {
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   document.body.style = "overflow: hidden";
-  // }, [])
+  useEffect(() => {
+    document.body.style = "overflow: hidden";
+  })
 
   const startNewOrder = () => {
     updateCart([]);
