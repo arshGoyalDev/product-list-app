@@ -1,3 +1,5 @@
+import ItemDetails from "./ItemDetails";
+
 const CartItem = ({ name, number, price, cart, updateCart }) => {
   const deleteItem = () => {
     let newCart = [];
@@ -13,18 +15,12 @@ const CartItem = ({ name, number, price, cart, updateCart }) => {
 
   return (
     <div className="flex justify-between items-center py-6 border-b-neutral-rose50 border-b-2 gap-3">
-      <div className="grid gap-3">
-        <h2 className="font-semibold text-lg">{name}</h2>
-        <div className="flex gap-2">
-          <p className="text-primary-red font-semibold mr-2">{number}x</p>
-          <p className="text-neutral-rose400">
-            <span className="text-neutral-rose300">@</span>${price.toFixed(2)}
-          </p>
-          <p className="text-neutral-rose500 font-semibold">
-            ${(price * number).toFixed(2)}
-          </p>
-        </div>
-      </div>
+      <ItemDetails
+        name={name}
+        number={number}
+        price={price}
+        totalPrice={true}
+      />
 
       <div>
         <button
