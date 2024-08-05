@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import OrderItem from "../Components/OrderItem";
+import OrderTotal from "../Components/OrderTotal";
 
 const ConfirmOrder = ({ cart, updateCart }) => {
+  const navigate = useNavigate();
+
+  const startNewOrder = () => {
+    updateCart([]);
+    navigate(-1);
+  };
+
   return (
     <div className="z-[2000]">
       <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)] z-900"></div>
@@ -29,7 +37,7 @@ const ConfirmOrder = ({ cart, updateCart }) => {
           <p className="text-neutral-rose500">We hope you enjoy your food!</p>
         </div>
 
-        <div className="mt-8 bg-neutral-rose50 rounded-lg px-6 pb-6">
+        <div className="mt-8 bg-neutral-rose50 rounded-lg px-6">
           {cart.map((item) => {
             return (
               <OrderItem
@@ -39,15 +47,17 @@ const ConfirmOrder = ({ cart, updateCart }) => {
                 image={item.images}
                 number={item.number}
               />
-            )
+            );
           })}
+          <OrderTotal cart={cart} />
         </div>
 
-        <Link to="../">
-          <button className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition">
-            Start New Order
-          </button>
-        </Link>
+        <button
+          className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition"
+          onClick={startNewOrder}
+        >
+          Start New Order
+        </button>
       </div>
     </div>
   );

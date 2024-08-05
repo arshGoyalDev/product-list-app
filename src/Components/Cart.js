@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import CartItem from "./CartItem";
+import OrderTotal from "./OrderTotal";
 
 const Cart = ({ cart, updateCart }) => {
-
   const location = useLocation();
 
   const getTotalNumber = () => {
@@ -12,15 +12,6 @@ const Cart = ({ cart, updateCart }) => {
     });
 
     return totalNumber;
-  };
-
-  const getTotalCost = () => {
-    let totalCost = 0;
-    cart.forEach((item) => {
-      totalCost += item.price * item.number;
-    });
-
-    return totalCost;
   };
 
   return (
@@ -46,10 +37,7 @@ const Cart = ({ cart, updateCart }) => {
               })}
             </div>
 
-            <div className="flex justify-between items-center py-6">
-              <p className="font-semibold">Order Total</p>
-              <p className="font-bold text-3xl">${getTotalCost()}</p>
-            </div>
+            <OrderTotal cart={cart} />
 
             <div className="bg-neutral-rose50 py-5 px-6 flex justify-center items-center gap-2 rounded-xl">
               <svg
@@ -75,10 +63,10 @@ const Cart = ({ cart, updateCart }) => {
             </div>
 
             <div>
-              <Link to={'/confirm-order'} state={{background: location}}>
-              <button className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition">
-                Confirm Order
-              </button>
+              <Link to={"/confirm-order"} state={{ background: location }}>
+                <button className="bg-primary-red text-white py-4 grid place-content-center w-full mt-7 rounded-full hover:bg-[#83341a] transition">
+                  Confirm Order
+                </button>
               </Link>
             </div>
           </div>
