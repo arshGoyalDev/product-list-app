@@ -5,7 +5,7 @@ const OrderTotal = ({cart}) => {
       totalCost += item.price * item.number;
     });
 
-    return totalCost;
+    return totalCost.toFixed(2);
   };
 
   return (

@@ -10,14 +10,14 @@ const OrderItem = ({name, price, image, number}) => {
         <div className="flex gap-2">
           <p className="text-primary-red font-semibold mr-2">{number}x</p>
           <p className="text-neutral-rose400">
-            <span className="text-neutral-rose300">@</span>${price}
+            <span className="text-neutral-rose300">@</span>${price.toFixed(2)}
           </p>
         </div>
       </div>
 
       </div>
       <div className="font-semibold text-[#3b312e] text-xl">
-        ${number * price}
+        ${(number * price).toFixed(2)}
       </div>
     </div>
   )

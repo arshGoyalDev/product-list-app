@@ -120,7 +120,7 @@ const Product = ({ name, category, price, images, cart, updateCart }) => {
       <div className="flex gap-1 flex-col mt-10">
         <p className="text-neutral-rose400 text-sm">{category}</p>
         <p className="font-semibold text-lg">{name}</p>
-        <p className="text-primary-red font-semibold text-lg">${price}</p>
+        <p className="text-primary-red font-semibold text-lg">${price.toFixed(2)}</p>
       </div>
     </div>
   );

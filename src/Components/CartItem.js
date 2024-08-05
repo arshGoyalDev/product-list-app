@@ -18,10 +18,10 @@ const CartItem = ({ name, number, price, cart, updateCart }) => {
         <div className="flex gap-2">
           <p className="text-primary-red font-semibold mr-2">{number}x</p>
           <p className="text-neutral-rose400">
-            <span className="text-neutral-rose300">@</span>${price}
+            <span className="text-neutral-rose300">@</span>${price.toFixed(2)}
           </p>
           <p className="text-neutral-rose500 font-semibold">
-            ${price * number}
+            ${(price * number).toFixed(2)}
           </p>
         </div>
       </div>

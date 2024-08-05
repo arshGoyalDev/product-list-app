@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import OrderItem from "../Components/OrderItem";
 import OrderTotal from "../Components/OrderTotal";
+// import { useEffect } from "react";
 
 const ConfirmOrder = ({ cart, updateCart }) => {
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   document.body.style = "overflow: hidden";
+  // }, [])
 
   const startNewOrder = () => {
     updateCart([]);
@@ -11,9 +16,9 @@ const ConfirmOrder = ({ cart, updateCart }) => {
   };
 
   return (
-    <div className="z-[2000]">
-      <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)] z-900"></div>
-      <div className="fixed bottom-0 left-0 right-0 p-8 z-[2200] bg-white rounded-t-xl">
+    <div className="z-[2000] lg:fixed lg:top-0 lg:left-0 lg:w-full lg:h-full lg:grid lg:place-content-center">
+      <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-900"></div>
+      <div className="fixed bottom-0 left-0 right-0  lg:static p-8 z-[2200] bg-white rounded-t-xl lg:rounded-xl lg:w-[600px] max-h-[80%] overflow-y-auto lg:max-h-[800px]">
         <div>
           <div className="mb-6">
             <svg
