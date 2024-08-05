@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import OrderItem from "../Components/OrderItem";
 
-const ConfirmOrder = ({cart, updateCart}) => {
+const ConfirmOrder = ({ cart, updateCart }) => {
   return (
     <div className="z-[2000]">
       <div className="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.4)] z-900"></div>
@@ -29,15 +29,18 @@ const ConfirmOrder = ({cart, updateCart}) => {
           <p className="text-neutral-rose500">We hope you enjoy your food!</p>
         </div>
 
-        <div>
-          {
-            cart.map((item) => {
-              return (
-
-                <OrderItem key={item.name} name={item.name} price={item.price} image={item.image} number={item.number} />
-              )
-            })
-          }
+        <div className="mt-8 bg-neutral-rose50 rounded-lg px-6 pb-6">
+          {cart.map((item) => {
+            return (
+              <OrderItem
+                key={item.name}
+                name={item.name}
+                price={item.price}
+                image={item.images}
+                number={item.number}
+              />
+            )
+          })}
         </div>
 
         <Link to="../">
