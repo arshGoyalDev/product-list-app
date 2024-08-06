@@ -15,7 +15,7 @@ const Cart = ({ cart, updateCart }) => {
   };
 
   return (
-    <section className="bg-white rounded-xl p-6 xl:p-7 grid h-fit">
+    <section className="bg-white rounded-xl p-6 xl:p-7 grid h-fit lg:fixed lg:top-[75px] lg:right-[75px] xl:top-[70px] xl:right-[70px] xxl:top-28 xxl:right-28 lg:w-[35%] xxl:w-[25%]">
       <h1 className="text-2xl text-primary-red font-extrabold">
         Your Cart ({getTotalNumber()})
       </h1>
