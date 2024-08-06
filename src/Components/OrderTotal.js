@@ -1,4 +1,4 @@
-const OrderTotal = ({cart}) => {
+const OrderTotal = ({ cart }) => {
   const getTotalCost = () => {
     let totalCost = 0;
     cart.forEach((item) => {
