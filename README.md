@@ -2,6 +2,12 @@
 
 This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
+<br>
+
+![Screenshot](./public/images/screenshot.png)
+
+<br>
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -28,7 +34,8 @@ Users should be able to:
 ### Built with
 
 - [React](https://reactjs.org/) - JS library
-- [TailwindCSs](https://tailwindcss.com) - CSS Framework
+- [React Router](https://reactrouter.com/en/main) - Router for React
+- [TailwindCSS](https://tailwindcss.com) - CSS Framework
 
 ## Author
 
